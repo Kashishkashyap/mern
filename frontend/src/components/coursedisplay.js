@@ -7,7 +7,7 @@ const CourseList = ({ onAddToBucket }) => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await fetch('http://localhost:5000/courses/all', {
+                const response = await fetch('https://mern-zeta-blush.vercel.app/courses/all', {
                     headers: headers,
                 });
                 if (response.ok) {

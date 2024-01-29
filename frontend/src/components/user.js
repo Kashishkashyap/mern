@@ -11,7 +11,7 @@ const UserDashboard = () => {
             try {
                 setAuthToken(localStorage.getItem('token'));
 
-                const response = await fetch(`http://localhost:5000/courses/user/${localStorage.getItem('userId')}/courses`, {
+                const response = await fetch(`https://mern-zeta-blush.vercel.app/courses/user/${localStorage.getItem('userId')}/courses`, {
                     headers: headers,
                     method: "GET"
                 });
@@ -34,7 +34,7 @@ const UserDashboard = () => {
         try {
             setAuthToken(localStorage.getItem('token'));
 
-            const response = await fetch(`http://localhost:5000/user/add-course`, {
+            const response = await fetch(`https://mern-zeta-blush.vercel.app/user/add-course`, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify({ userId: localStorage.getItem('userId'), courseId }),

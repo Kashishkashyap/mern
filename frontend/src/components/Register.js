@@ -6,7 +6,7 @@ const Register = () => {
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:5000/user/register`, {
+    const response = await fetch(`https://mern-zeta-blush.vercel.app/user/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
