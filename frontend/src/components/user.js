@@ -1,0 +1,73 @@
+import React, { useState, useEffect } from 'react';
+import CourseList from './coursedisplay';
+import { setAuthToken, headers } from './auth';
+import Logout from './Logout'
+
+const UserDashboard = () => {
+    const [userCourses, setUserCourses] = useState([]);
+
+    useEffect(() => {
+        const fetchUserCourses = async () => {
+            try {
+                setAuthToken(localStorage.getItem('token'));
+
+                const response = await fetch(`http://localhost:5000/courses/user/${localStorage.getItem('userId')}/courses`, {
+                    headers: headers,
+                    method: "GET"
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserCourses(data.user.courses);
+                } else {
+                    console.error('Error fetching user courses');
+                }
+            } catch (error) {
+                console.error('Error fetching user courses:', error);
+            }
+        };
+
+        fetchUserCourses();
+    }, []);
+
+    const handleAddToBucket = async (courseId) => {
+        try {
+            setAuthToken(localStorage.getItem('token'));
+
+            const response = await fetch(`http://localhost:5000/user/add-course`, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({ userId: localStorage.getItem('userId'), courseId }),
+            });
+
+            if (response.ok) {
+                window.alert('Course added to your bucket!');
+            } else {
+                console.error('Error adding course to bucket');
+            }
+        } catch (error) {
+            console.error('Error adding course to bucket:', error);
+        }
+    };
+
+
+
+    return (
+        <div class="container">
+            <Logout />
+
+            <h2>Courses in Your Bucket</h2>
+            <ul>
+                {userCourses.map((course) => (
+                    <li key={course._id}>
+                        <p>{course.title}</p>
+                    </li>
+                ))}
+            </ul>
+
+            <CourseList onAddToBucket={handleAddToBucket} />
+        </div>
+    );
+};
+
+export default UserDashboard;
