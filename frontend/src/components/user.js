@@ -53,14 +53,16 @@ const UserDashboard = () => {
 
 
     return (
-        <div class="container">
-            <Logout />
+        <div className="container mt-5">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+                <h2>Courses in Your Bucket</h2>
+                <Logout />
+            </div>
 
-            <h2>Courses in Your Bucket</h2>
-            <ul>
+            <ul className="list-group mb-4">
                 {userCourses.map((course) => (
-                    <li key={course._id}>
-                        <p>{course.title}</p>
+                    <li key={course._id} className="list-group-item">
+                        {course.title}
                     </li>
                 ))}
             </ul>
