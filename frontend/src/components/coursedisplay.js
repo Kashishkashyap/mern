@@ -29,10 +29,16 @@ const CourseList = ({ onAddToBucket }) => {
             <h2>Available Courses</h2>
             <ul class="container">
                 {courses && courses.map((course) => (
-                    <li key={course._id}>
-                        <p>{course.title}</p>
-                        <button class="btn btn-info" onClick={() => onAddToBucket(course._id)}>Add to Bucket</button>
-                    </li>
+                    <div key={course._id} class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap" />
+                        <div class="card-body">
+                            <h5 class="card-title">key={course._id}</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo facilis architecto et perspiciatis quod amet est ea assumenda eos illo.</p>
+                            <button class="btn btn-info" onClick={() => onAddToBucket(course._id)}>Add to Bucket</button>
+                        </div>
+                    </div>
+
+
                 ))}
             </ul>
         </div>
