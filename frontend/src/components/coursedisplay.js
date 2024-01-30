@@ -45,7 +45,7 @@ const CourseList = ({ onAddToBucket }) => {
                     {courses && courses.map((course) => (
                         <div key={course._id} className="col-md-4 mb-4">
                             <div className="card">
-                                {/* <img src={course.image} className="card-img-top" alt={course.title} /> */}
+                                <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.shiksha.com%2Fmediadata%2FugcDocuments%2Fimages%2FwordpressImages%2F2022_08_MicrosoftTeams-image-13-2-1.jpg&tbnid=0yFAH-ZW2-qvgM&vet=12ahUKEwjHiMD5xYSEAxVRQWwGHSTVDUMQMygGegUIARCBAQ..i&imgrefurl=https%3A%2F%2Fwww.shiksha.com%2Fonline-courses%2Farticles%2Fcs-courses-guide-for-company-secretary%2F&docid=wC6cUWKYiBK39M&w=1200&h=630&q=course%20image&ved=2ahUKEwjHiMD5xYSEAxVRQWwGHSTVDUMQMygGegUIARCBAQ" className="card-img-top" alt={course.title} />
                                 <div className="card-body">
                                     <h5 className="card-title">{course.title}</h5>
                                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dicta velit in eligendi praesentium distinctio veritatis corporis! Cum, rem sequi.</p>
